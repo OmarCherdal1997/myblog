@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock  %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'myblog/index.css' %}">
+    <link rel="stylesheet" href="{% static 'myblog/post.css' %}">
+{% endblock  %}
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static 'myblog/images/max.png' %}" alt="Omar Cherdal -- the author of this blog" />
+            <h2>Omar's blog </h2>
+        </header>
+        <p>Hey I am Omar, I love blogs about tech subjects</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My latest thoughts</h2>
+        <ul>
+            {% include 'myblog/includes/post.html' %}
+        </ul>
+    </section>
+    <section  id="about">
+        <h2>What i do</h2>
+        <p>
+            I love programming, and learn new technologies
+        </p>
+        <p>
+            My goal is to keep up growing as a developper
+        </p>
+    </section>
+{% endblock  %}

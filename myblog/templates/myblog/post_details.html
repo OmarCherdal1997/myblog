@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Post
+{% endblock  %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'myblog/post_detail.css' %}">
+{% endblock  %}
+{% block content %}
+    <section id="summary">
+        <h2>PT</h2>
+        <article>
+            <img src="" alt="PT">
+            <address>By Omar </address>
+            <div>
+                Last updated on <time>July 10th</time>
+            </div>
+        </article>
+    </section>
+    <main>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
+        </p>
+    </main>
+
+{% endblock  %}
