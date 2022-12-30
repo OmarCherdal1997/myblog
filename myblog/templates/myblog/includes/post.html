@@ -1,13 +1,13 @@
 {% load static %}
 <li>
     <article class="post">
-        <a href="{% url 'post_details_page' 'Mountain' %}">
-            <img src="{% static 'myblog/images/mountains.jpeg' %}" alt="Mountain hiking" />
+        <a href="{% url 'post_details_page' post.slug %}">
+            <img src="{% static "myblog/images/"|add:post.image  %}" alt="{{ post.title }}" />
             <div class="post__content">
-                    <h3>Mountain Hiking</h3>
+                    <h3>{{ post.title }}</h3>
                     <p>
-                        there is nothing like the views that you get when hiking !! i wasn't even prepared for this beautifull moments
-                    </p>
+                        {{ post.content }}
+                           </p>
             </div>
         </a>
     </article>

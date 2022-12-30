@@ -2,35 +2,27 @@
 {% load static %}
 
 {% block title %}
-    Post
+{{ post.title }}
 {% endblock  %}
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'myblog/post_detail.css' %}">
 {% endblock  %}
 {% block content %}
     <section id="summary">
-        <h2>PT</h2>
+        <h2>{{ post.title }}</h2>
         <article>
-            <img src="" alt="PT">
+            <img src="{% static "myblog/images/"|add:post.image  %}" alt="{{ post.title }}">
             <address>By Omar </address>
             <div>
-                Last updated on <time>July 10th</time>
+                Last updated on <time>{{ post.date|date:"d M Y" }}</time>
             </div>
         </article>
     </section>
     <main>
         <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
+            {{ post.content|linebreaks }}
         </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
-        </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
-        </p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis voluptas ducimus eaque nesciunt itaque tempora blanditiis rem expedita fugit assumenda? Quia rem inventore blanditiis, quam fugit omnis laborum explicabo quibusdam.
-        </p>
+       
     </main>
 
 {% endblock  %}

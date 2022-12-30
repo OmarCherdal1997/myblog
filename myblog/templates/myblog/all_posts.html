@@ -12,12 +12,10 @@
     <section id="all-posts">
         <h2>My collected posts</h2>
         <ul>
-            {% include 'myblog/includes/post.html' %}
-            {% include 'myblog/includes/post.html' %}
-            {% include 'myblog/includes/post.html' %}
-            {% include 'myblog/includes/post.html' %}
-            {% include 'myblog/includes/post.html' %}
-            {% include 'myblog/includes/post.html' %}
+            {% for post in posts  %}
+                 {% include 'myblog/includes/post.html' %}
+            {% endfor %}
+
         </ul>
     </section>
 

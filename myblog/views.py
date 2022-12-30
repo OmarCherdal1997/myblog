@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
-posts = [
+from datetime import date
+all_posts = [
     {
         "slug": "hike-in-the-mountains",
-        "image": "mountains.jpg",
+        "image": "mountains.jpeg",
         "author": "Maximilian",
         "date": date(2021, 7, 21),
         "title": "Mountain Hiking",
@@ -24,7 +24,7 @@ posts = [
     },
     {
         "slug": "programming-is-fun",
-        "image": "coding.jpg",
+        "image": "coding.jpeg",
         "author": "Maximilian",
         "date": date(2022, 3, 10),
         "title": "Programming Is Great!",
@@ -45,7 +45,7 @@ posts = [
     },
     {
         "slug": "into-the-woods",
-        "image": "woods.jpg",
+        "image": "woods.jpeg",
         "author": "Maximilian",
         "date": date(2020, 8, 5),
         "title": "Nature At Its Best",
@@ -67,11 +67,24 @@ posts = [
 ]
 
 # Create your views here.
+def get_date(item):
+    return item['date']
+
 def index(request):
-    return render(request,"myblog/index.html")
+    sorted_posts = sorted(all_posts,key=get_date)
+    latest_posts = sorted_posts[-3:]
+    return render(request,"myblog/index.html",{
+        "posts": latest_posts
+    })
 
 def posts(request):
-    return render(request,"myblog/all_posts.html")
+    sorted_posts = sorted(all_posts,key=get_date)
+    return render(request,"myblog/all_posts.html",{
+        "posts": sorted_posts
+    })
 
 def post_details(request,slug):
-    return render(request, "myblog/post_details.html")
+    identified_posts = next(post for post in all_posts if post['slug'] == slug )
+    return render(request, "myblog/post_details.html",{
+        "post": identified_posts
+    })
