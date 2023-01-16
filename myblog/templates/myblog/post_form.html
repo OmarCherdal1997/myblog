@@ -1,0 +1,28 @@
+
+{% load static %}
+<!doctype html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'myblog/post_form.css' %}">
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {% for item in form %}
+        
+            <div class="form-control {% if item.errors %}errors{% endif %}" >
+                {{ item.label_tag }}
+                {{ item }}
+                {{ item.errors }}
+            </div>
+        {% endfor %}
+        <div>
+            <button type="submit">send</button>
+        </div>
+    </form>
+</body>
+
+</html>
