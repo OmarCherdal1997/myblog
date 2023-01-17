@@ -8,17 +8,17 @@ from django.views.generic import ListView,DetailView
 
 
 
-def index(request):
-    latest_posts = Post.objects.all().order_by("-date")
-    return render(request,"myblog/index.html",{
-        "posts": latest_posts
-    })
+# def index(request):
+#     latest_posts = Post.objects.all().order_by("-date")
+#     return render(request,"myblog/index.html",{
+#         "posts": latest_posts
+#     })
 
-def post_details(request,slug):
-    identified_posts = Post.objects.get(slug = slug)
-    return render(request, "myblog/post_details.html",{
-        "post": identified_posts
-    })
+# def post_details(request,slug):
+#     identified_posts = Post.objects.get(slug = slug)
+#     return render(request, "myblog/post_details.html",{
+#         "post": identified_posts
+#     })
 
 def thank_you(request):
     return render(request, "myblog/thank-you.html")
